@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+    <form id="search_form" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button name="submit">Search</button>
+
+    </form>
+
+
+    {% if search %}
+        <div id="search_result">
+
+            {% for course in seachedcourses %}
+                <div class="{{ course.course_number }}_{{ course.group_number }}">
+
+                    <h4>{{ course.course_name }}</h4>
+                    <div>دانشکده: {{ course.department }}</div>
+                    <div>روز: {{ course.days.first }} و {{ course.days.second }}</div>
+                    <div>زمان: {{ course.times.start }} تا {{ course.times.end }}</div>
+                    <div>نام استاد: {{ course.teacher }}</div>
+                </div>
+                <br>
+            {% endfor %}
+
+
+        </div>
+    {% endif %}
+
+    <div id="all_courses">
+
+        {% for course in courses %}
+
+            <div class="{{ course.course_number }}_{{ course.group_number }}">
+
+                <h4>{{ course.course_name }}</h4>
+                <div>دانشکده: {{ course.department }}</div>
+                <div>روز: {{ course.days.first }} و {{ course.days.second }}</div>
+                <div>زمان: {{ course.times.start }} تا {{ course.times.end }}</div>
+                <div>نام استاد: {{ course.teacher }}</div>
+                <a href="/"
+            </div>
+            <br>
+        {% endfor %}
+
+    </div>
+
+    <a class="add"></a>
+    <br>
+    <div id="my_courses">
+        {% for course in my_courses %}
+
+            <div class="{{ course.course_number }}_{{ course.group_number }}">
+                <h4>{{ course.course_name }}</h4>
+                <div>دانشکده: {{ course.department }}</div>
+                <div>روز: {{ course.days.first }} و {{ course.days.second }}</div>
+                <div>زمان: {{ course.times.start }} تا {{ course.times.end }}</div>
+                <div>نام استاد: {{ course.teacher }}</div>
+            </div>
+            <br>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

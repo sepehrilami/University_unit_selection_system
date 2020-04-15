@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="container">
+
+        <h1>ورود</h1>
+        <hr>
+        <form method="post" action="/login" id="login_form">
+
+            {% if message != 'nothing' %}
+                <div class="alert alert-danger" id="error" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+
+            {% csrf_token %}
+
+            {{ form.as_table }}
+
+            <button type="submit" class="signupbtn">ورود</button>
+
+    </div>
+
+{% endblock %}

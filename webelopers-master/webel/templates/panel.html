@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_superuser %}
+        <a type="button" class="btn btn-primary btn-lg btn-block" id="make_new_course" href="/makecourse" role="button">ساختن
+            واحد</a>
+    {% endif %}
+    <br>
+    <a type="button" class="btn btn-primary btn-lg btn-block" id="courses" href="/courses" role="button"> لیست واحد
+        ها</a>
+
+{% endblock %}

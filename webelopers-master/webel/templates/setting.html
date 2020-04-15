@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <form method="post" id="setting_form" action="/setting" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>ویرایش پروفایل</h1>
+            <hr>
+
+            {{ form }}
+                        <input name="document" type="file">
+            <br>
+            <button type="submit" class="signupbtn">ویرایش</button>
+
+        </form>
+    </div>
+
+{% endblock %}

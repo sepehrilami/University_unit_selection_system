@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <form id="make_course" action="/makecourse" method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <h1>ساختن واحد</h1>
+            <hr>
+
+            {{ form.as_table }}
+            <br>
+
+
+            <button type="submit" class="signupbtn">ساختن واحد</button>
+            <br>
+            <br>
+            <br>
+        </div>
+    </form>
+
+{% endblock %}

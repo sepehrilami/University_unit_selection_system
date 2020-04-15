@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <form id="register_form" action="/register" method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <h1>ثبت نام</h1>
+            <hr>
+
+            {% if message %}
+                <div class="alert alert-danger" id="errors" role="alert">
+
+                    {% if 'username' in message %}
+
+                        <p>
+                            نام کاربری شما در سیستم موجود است
+                        </p>
+                    {% endif %}
+                    {% if 'password' in message %}
+                        <p>
+                            گذرواژه و تکرار گذرواژه یکسان نیستند
+                        </p>
+
+                    {% endif %}
+                </div>
+            {% endif %}
+
+
+            <label for="firstname"><b>First name</b></label>
+            <br>
+            <input type="text" placeholder="Enter Firstname" name="first_name">
+            <label for="lastname"><b>Last name</b></label>
+            <br>
+            <input type="text" placeholder="Enter Lastname" name="last_name">
+            <label for="username"><b>Username</b></label>
+            <br>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label for="email"><b>Email</b></label>
+            <br>
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <label for="password1"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password1" required>
+            <label for="password2"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="password2" required>
+
+{#            <img id="profile_image">#}
+{#            <input name="profile" type="file">عکس پروفایل#}
+            <br>
+            <input type="submit">
+            <button type="submit" name="submit" class="signupbtn">ثبت نام</button>
+            <br>
+            <br>
+            <br>
+        </div>
+    </form>
+
+{% endblock %}
